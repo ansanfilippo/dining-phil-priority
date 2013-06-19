@@ -104,9 +104,9 @@ namespace WindowsFormsApplication1
             {
                 while (holder != null)
                     Thread.Sleep(0);
-            }
 
-            holder = phil;
+                holder = phil;
+            }
         }
 
         public void CleanFork()
@@ -168,8 +168,8 @@ namespace WindowsFormsApplication1
                 LV.Items[Row].SubItems[SubItem].Text = s;
             }
         }
-
         //
+
         public bool eating;
         public Thread pThread;
         public int philID;
@@ -243,10 +243,11 @@ namespace WindowsFormsApplication1
                     Status = "Cleaning";
                     {
                         leftFork.CleanFork();
+                        ForkStatus = "H: " + rightFork.forkID;
                         Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
                         rightFork.CleanFork();
-                        Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
                         ForkStatus = "";
+                        Thread.Sleep(new Random(DateTime.Now.Millisecond).Next(0, (int)(500 * pDelay)));
                     }
 
                     Status = "Thinking";
